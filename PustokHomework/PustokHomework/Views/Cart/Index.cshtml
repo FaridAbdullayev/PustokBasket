@@ -1,0 +1,73 @@
+﻿@model List<BasketDetailViewModel>
+
+@{
+    decimal grandTotal = 0;
+}
+
+<section class="breadcrumb-section">
+    <h2 class="sr-only">Site Breadcrumb</h2>
+    <div class="container">
+        <div class="breadcrumb-contents">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Wishlist</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+<!-- Wishlist Page Start -->
+<div class="cart_area inner-page-sec-padding-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form action="https://demo.hasthemes.com/pustok-preview/pustok/">
+                    <!-- Cart Table -->
+                    <div class="cart-table table-responsive">
+                        <table class="table">
+                            <thead>
+
+                                <tr>
+                                    <th class="pro-thumbnail">Image</th>
+                                    <th class="pro-title">Name</th>
+                                    <th class="pro-price">Price</th>
+                                    <th class="pro-quantity">Count</th>
+                                    <th class="pro-total">Total</th>
+
+                                    <th class="pro-remove">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="pro-thumbnail">
+                                            <a href="#">
+                                                <img src="~/uploads/book/@item.Image" alt="Product">
+                                            </a>
+                                        </td>
+                                        <td class="pro-title"><a href="#">@item.Name</a></td>
+                                        <td class="pro-price">@item.Price</td>
+                                        <td class="pro-quantity">@item.Count</td>
+                                        <td class="pro-total">@item.Total</td>
+                                        <td class="pro-remove"><a  asp-action="deletebasket" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></a></td>
+                                    </tr>
+
+                                    grandTotal += item.Total;
+                                }
+                          
+                            </tbody>
+                                <h3 style="color:red">
+                                    GrandTotal : @grandTotal
+
+                                </h3>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

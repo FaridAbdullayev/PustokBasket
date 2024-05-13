@@ -1,0 +1,66 @@
+﻿@model Slider
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Slider</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            Create Slider
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <form class="user" asp-action="create" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title1Input">Title 1</label>
+                    <input asp-for="Title1" class="form-control" id="title1Input" placeholder="Enter Name here..">
+                </div>
+                <div class="form-group">
+                    <label for="title2Input">Title 2</label>
+                    <input asp-for="Title2" class="form-control" id="title2Input" placeholder="Enter Name here..">
+                </div>
+                <div class="form-group">
+                    <label for="btnTextInput">Btn Text</label>
+                    <input asp-for="BtnText" class="form-control" id="btnTextInput" placeholder="Enter Name here..">
+                </div>
+                <div class="form-group">
+                    <label for="btnurlInput">Btn Url</label>
+                    <input asp-for="BtnUrl" class="form-control" id="btnurlInput" placeholder="Enter Name here..">
+                </div>
+                <div class="form-group">
+                    <label for="descInput">Description</label>
+                    <input asp-for="Description" class="form-control" id="descInput" placeholder="Enter Name here..">
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="imgInput">ImageFile</label>
+                            <input asp-for="ImageFile" class="form-control imgInput" placeholder=" ">
+                            <div class="preview-box">
+                                <img width="200" class="previewImg" />
+                            </div>
+                            <span class="text-danger" asp-validation-for="ImageFile"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="orderInput">Order</label>
+                    <input asp-for="Order" class="form-control" id="orderInput" placeholder="Enter Name here..">
+                </div>
+                <button class="btn btn-primary" type="submit">
+                    Create Slider
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    @Html.Partial("_ValidationScriptPartials");
+}

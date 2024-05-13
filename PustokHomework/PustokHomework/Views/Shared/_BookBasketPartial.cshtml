@@ -1,0 +1,23 @@
+﻿
+@model List<BasketDetailViewModel>
+
+@foreach (var item in Model)
+{
+    <div class=" single-cart-block ">
+        <div class="cart-product">
+            <a href="product-details.html" class="image">
+                <img src="~/uploads/book/@item.Image" alt="">
+            </a>
+            <div class="content">
+                <h3 class="title">
+                    <a href="product-details.html">
+                        @item.Name
+                    </a>
+                </h3>
+                <p class="price"><span class="qty">1 ×</span> £@item.Price</p>
+                <button class="cross-btn"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </div>
+
+}
